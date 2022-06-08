@@ -1,0 +1,46 @@
+﻿@model List<u21432253_HW3.Models.FileModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<div class="jumbotron">
+    <div class="row">
+        @if (Model != null)
+        {
+            foreach (var image in Model)
+            {
+
+                <div class="col-lg-3 ">
+                    <div class="gallery">
+                    <a href="~/Media/Images/@image.FileName"  data-caption="@image.FileName" data-fancybox="gallery">
+                        <img src="~/Media/Images/@image.FileName" style="height:200px" />
+                        <p>@image.FileName</p>
+                    </a>
+                        </div>
+                        <button class="btn btn-danger"> @Html.ActionLink("Download", "Download", new { name = image.FileName })</button>
+                        <button class="btn btn-success"> @Html.ActionLink("Delete", "Delete", new { name = image.FileName })</button>
+</div>
+
+
+            }
+        }
+        else
+        {
+            <div class="col-lg-3">
+                No images 
+            </div>
+
+        }
+
+    </div>
+    </div>
+
+<script>
+$(document).ready(function ($) {
+$(".gallery a").fancybox();
+});
+</script>

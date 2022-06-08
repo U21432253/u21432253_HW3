@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+ @ViewBag.Msg 
+<div class="jumbotron">
+
+    <div class="row">
+        <div class=col-lg-8>
+            <h2>Description</h2>
+            <p style="font-size:15px">This program basically allows you to select between a document, image and video. You choose the file from your device and allows you to upload the file using a button. There are 5 buttons on the nav bar. The home page allows you to select the file you want to upload the files, image and videos allows you to download and delete the selected file you submitted on your home page and the about me page basically gives an over view of me. The person who coded the program.</p>
+        </div>
+        <div class=col-lg-4>
+            <h2>Option Sellection</h2>
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <label>Document</label>
+                <input type="radio" name="radioButton" value="Document" /><br />
+
+                
+                <label>Image</label>
+                <input type="radio" name="radioButton" value="Image" /><br />
+
+                <label>Video</label>
+                <input type="radio" name="radioButton" value="Video" />
+
+                <input type="file" name="file" />
+                <br />
+                <button type="submit">Submit</button>
+            }
+
+
+
+        </div>
+    </div>
+
+</div>
+
